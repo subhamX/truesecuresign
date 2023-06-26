@@ -1,5 +1,7 @@
-import { S3Client, AbortMultipartUploadCommand, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, AbortMultipartUploadCommand, PutObjectCommand, GetObjectCommand } from "@aws-sdk/client-s3";
 import { uuid } from "uuidv4";
+
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
 
 const accessKeyId = process.env.ACCESS_KEY_ID as string;
@@ -31,13 +33,6 @@ const client = new S3Client({
 
 
 export const uploadFileToStorageBucket = async (file: File, prefix: string) => {
-
-    // // check that prefix end is not with .
-    // if(prefix.endsWith("/")){
-    //     throw new Error("prefix arg cannot end with /")
-    // }
-
-    console.log('xxx')
     const cmd = new PutObjectCommand({
         Bucket: bucketName,
         Key: `${prefix}/${file.name}`,
@@ -45,4 +40,15 @@ export const uploadFileToStorageBucket = async (file: File, prefix: string) => {
     })
     const data = await client.send(cmd)
     return data
+}
+
+
+export const getPresignedUrl = async (objectKey: string) => {
+    const command = new GetObjectCommand({
+        Bucket: bucketName,
+        Key: objectKey,
+    });
+
+    const url = await getSignedUrl(client, command);
+    return url;
 }

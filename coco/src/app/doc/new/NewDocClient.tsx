@@ -11,9 +11,11 @@ export const NewDocClient = () => {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const router = useRouter()
     return (
-        <div className="px-6 max-w-2xl mx-auto">
-            New doc
+        <div className="mx-auto max-w-2xl">
 
+            <div className="text-2xl font-bold mb-4">
+                Upload a new doc
+            </div>
 
 
             {isSubmitting ?

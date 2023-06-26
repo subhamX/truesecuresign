@@ -15,3 +15,9 @@ export const NEW_DOC_SCREEN = "/doc/new"
 
 
 export const DOC_VIEW= (id: string) => `/doc/${id}`
+
+
+export const SIGN_DOC= (id: string) => `/doc/${id}/sign`
+
+
+export const REGISTER_CLI_SCREEN='/register-cli/'

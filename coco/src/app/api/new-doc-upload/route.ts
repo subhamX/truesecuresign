@@ -1,9 +1,11 @@
 import { getUserIdFromCookie } from "@/app/auth/getAuthUser"
-import { createDocumentInstance } from "@/utils/db/createDocumentInstance"
-import { uploadFileToStorageBucket } from "@/utils/upload-file"
+import { createDocumentInstance } from "@/utils/db/document"
+import { uploadFileToStorageBucket } from "@/utils/storage"
 import { ObjectId } from "mongodb"
 import { NextRequest, NextResponse } from "next/server"
 
+
+const rawDocumentPrefix = (documentId: string) => `documents/${documentId}`
 
 export const POST = async (req: NextRequest) => {
     try {
@@ -22,7 +24,8 @@ export const POST = async (req: NextRequest) => {
 
         // upload
         const documentId = new ObjectId()
-        const prefix = `documents/${documentId}`
+        const prefix = rawDocumentPrefix(documentId.toHexString())
+
         await uploadFileToStorageBucket(
             file,
             prefix,
@@ -36,7 +39,7 @@ export const POST = async (req: NextRequest) => {
             name: file.name,
             documentPathInStorageBucket,
             createdAt: new Date(),
-            ownerEmail: "ownerEmail",
+            ownerId: userID,
             hasBeenSigned: false,
         })
 
