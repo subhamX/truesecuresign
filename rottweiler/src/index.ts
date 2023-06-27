@@ -1,10 +1,8 @@
-import path from 'path';
 import { Command } from 'commander';
-import { exec } from 'child_process';
 import { initCLI } from './utils/initCheck';
 import { printWelcome } from './utils/printWelcome';
-import { readFile, stat } from 'fs';
 import { handleInitCommand } from './commands/handleInitCommand';
+import { handleSignCommand } from './commands/handleSignCommand';
 
 
 
@@ -13,7 +11,7 @@ const program = new Command();
 export const vaultName = 'TrueSecureSixgnv4.12.0'
 export const token = process.env.OP_SERVICE_ACCOUNT_TOKEN;
 
-
+initCLI()
 printWelcome()
 
 
@@ -31,10 +29,15 @@ program.command('init')
 
 
 
+program.command('sign')
+    .description('Sign a document securely with the keys present in local machine.')
+    .argument('<documentId>', 'Id of the document to be signed.')
+    .action(handleSignCommand);
+
+
 program.parse();
 
 
-initCLI()
 
 
 

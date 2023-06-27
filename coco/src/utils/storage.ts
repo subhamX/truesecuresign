@@ -37,6 +37,7 @@ export const uploadFileToStorageBucket = async (file: File, prefix: string) => {
         Bucket: bucketName,
         Key: `${prefix}/${file.name}`,
         Body: Buffer.from(await file.arrayBuffer()),
+        ContentType: file.type,
     })
     const data = await client.send(cmd)
     return data

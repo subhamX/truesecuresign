@@ -11,6 +11,7 @@ export const RedirectToAPageWithToast = ({route, text}:{
     const router = useRouter()
     useEffect(() => {
         toast.error(text, {
+            autoClose: 1000,
             onClose: () => {
                 router.push(route)
             }
