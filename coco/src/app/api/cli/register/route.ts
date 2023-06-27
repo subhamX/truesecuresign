@@ -6,61 +6,52 @@ import { NextRequest, NextResponse } from "next/server"
 import jwt from "jsonwebtoken"
 import Passage from "@passageidentity/passage-node"
 import { passageConfig } from "@/app/auth/passageConfig"
-import { UserIdentity, getUserIdentity } from "@/utils/db/userIdentity"
-import mongoDbClientPromise, { databaseId } from "@/utils/db/mongodb"
+import { createUserIdentity, getUserIdentity } from "@/utils/db/userIdentity"
 
-
-
-export enum Status {
-    CREDS_OK_NO_PUBLIC_KEY_GIVEN,
-    KEYS_MATCHING,
-    KEYS_NOT_MATCHING,
-}
 
 export const POST = async (req: NextRequest) => {
     try {
         // get user id
-        const {email, token, publicKey} = await req.json()
+        const { email, token, publicKey } = await req.json()
 
-
-        if(!email){
+        if (!email) {
             throw new Error("email is required")
         }
 
-        if(!token){
+        if (!token) {
             throw new Error("token is required")
+        }
+
+        if (!publicKey) {
+            throw new Error("publicKey is required")
         }
 
         // validate the jwt token
         const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as any
-        if(!decoded || decoded?.email !== email){
+        if (!decoded || decoded?.email !== email) {
             throw new Error("invalid token")
         }
 
 
-        // check if the user exists
-        // unfortunately, we can't filter by email. :()
-        const user=await new Passage(passageConfig).user.get(decoded.id)
-        if(!user){
+        // get the user from passage
+        const user = await new Passage(passageConfig).user.get(decoded.id)
+        if (!user) {
             throw new Error("invalid user or token")
         }
 
-        if(!publicKey){
-            return NextResponse.json({ status: Status.CREDS_OK_NO_PUBLIC_KEY_GIVEN })
-        }
 
         // get the user id
         const userId = user.id
-        const userIdentity = await getUserIdentity(userId, publicKey);
+        // we're allowing the user to register their keys as many unique keys as they want; there is a unique constraint on [passageId,publicKey] field
+        await createUserIdentity({
+            _id: new ObjectId(),
+            passageId: userId,
+            publicKey,
+            areKeysAlreadyGenerated: true,
+            keysGeneratedAt: new Date()
+        })
 
-        let response:Status;
-        if(!userIdentity){
-            response=Status.KEYS_NOT_MATCHING
-        }else{
-            response=Status.KEYS_MATCHING
-        }
-
-        return NextResponse.json({ status: response })
+        return NextResponse.json({ status: 'Keys registered successfully!' })
     } catch (e: any) {
         console.log("e", e)
         return NextResponse.json({ error: e.message })

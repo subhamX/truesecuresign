@@ -16,8 +16,6 @@ export default async function () {
     }
 
     const jwtSecret = process.env.JWT_SECRET as string
-
-
     const tmpToken = jsonwebtoken.sign({ email: user.email, id: user.userID }, jwtSecret)
 
     return (
