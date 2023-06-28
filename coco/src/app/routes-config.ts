@@ -21,3 +21,6 @@ export const SIGN_DOC= (id: string) => `/doc/${id}/sign`
 
 
 export const REGISTER_CLI_SCREEN='/register-cli/'
+
+
+export const MANAGE_DOCS='/dash/'

@@ -22,10 +22,16 @@ export default async function (props: any) {
     // fetch doc from db
     const signedUrl= await getPresignedUrl(doc.documentPathInStorageBucket)
 
+    let signedDocSignedUrl = undefined
+    if(doc.signedDocumentPathInStorageBucket){
+        signedDocSignedUrl= await getPresignedUrl(doc.signedDocumentPathInStorageBucket)
+    }
+
+
     return (
         <div>
             <Navbar user={user} />
-            <DocClient signedUrl={signedUrl} doc={{...doc, _id: doc._id.toHexString()}} />
+            <DocClient signedDocSignedUrl={signedDocSignedUrl} signedUrl={signedUrl} doc={{...doc, _id: doc._id.toHexString()}} />
         </div>
     )
 }

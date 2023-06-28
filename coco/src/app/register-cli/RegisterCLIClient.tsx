@@ -23,7 +23,6 @@ export const RegisterCLIClient = ({
 
             <div className="text-sm text-gray-500 mb-5">
                 You need to install a command line tool to sign your documents. It's a one time setup and you can use it to sign all your documents in future.
-
             </div>
 
             <div className="p-3 mb-4 text-xs text-red-800 border border-red-700 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">

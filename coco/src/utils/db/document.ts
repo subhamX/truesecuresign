@@ -13,6 +13,17 @@ export const createDocumentInstance = async (instance: OptionalId<DocumentInstan
     };
 };
 
+export const getAllDocsForUser = async (userId: string): Promise<ModelWithId<DocumentInstance>[]> => {
+    const client = await mongoDbClientPromise;
+    const response = await client.db(databaseId).collection<DocumentInstance>("documents").find({
+        ownerId: userId
+    }).sort({
+        signedAt: -1,
+        createdAt: -1
+    }).toArray();
+    return response;
+}
+
 
 export const updateDocumentInstanceWithSignedDocInfo = async ({
     _id,

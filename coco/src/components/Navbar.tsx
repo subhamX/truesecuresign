@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu } from "@headlessui/react";
 import { UserFromAuth } from "@/app/auth/getAuthUser";
-import { AUTH_SCREEN, NEW_DOC_SCREEN, PROFILE_SCREEN } from "@/app/routes-config";
+import { AUTH_SCREEN, MANAGE_DOCS, NEW_DOC_SCREEN, PROFILE_SCREEN } from "@/app/routes-config";
 import { logOutUserHandler } from "@/app/logoutbtn";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -89,7 +89,7 @@ const NavItems = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
                 <Menu.Item as='div' onClick={logOutUserHandler} className={`cursor-pointer font-medium w-full max-w-[210px] lg:w-fit lg:mx-3 px-3 hover:bg-gray-200 text-center rounded-lg text-sm py-2 transition-all text-black hover:text-primary`}>
                     Logout
                 </Menu.Item>
-                <NormalNavLink href='/dash' text="Dashboard" focused />
+                <NormalNavLink href={MANAGE_DOCS} text="Manage Docs" focused />
             </>}
 
 

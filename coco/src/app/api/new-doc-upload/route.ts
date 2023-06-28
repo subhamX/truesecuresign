@@ -26,14 +26,13 @@ export const POST = async (req: NextRequest) => {
         const documentId = new ObjectId()
         const prefix = rawDocumentPrefix(documentId.toHexString())
 
-        // await uploadFileToStorageBucket(
-        //     file,
-        //     prefix,
-        // )
+        await uploadFileToStorageBucket(
+            file,
+            prefix,
+        )
         const documentPathInStorageBucket = `${prefix}/${file.name}`
 
         // create a new document in table
-
         const response = await createDocumentInstance({
             _id: documentId,
             name: file.name,
