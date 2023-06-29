@@ -35,9 +35,8 @@ export const Navbar = ({ user }: { user: UserFromAuth | null }) => {
             <div className="px-4 sm:px-12 w-full">
                 <div className="flex justify-between items-center w-full">
                     <div className="w-60">
-                        <Link href="/" className="header-logo w-full block py-5">
-                            TrueSecureSign
-                            {/* <img src="/assets/faqGPT-logos_transparent_trim.png" alt="logo" className="w-full max-w-[150px]" /> */}
+                        <Link href="/" className="header-logo w-full block rounded-lg py-2 transition-all  px-3 hover:bg-gray-200">
+                            <img src="/TrueSecureSign-logos_transparent1.png" alt="logo" className="w-full max-w-[200px]" />
                         </Link>
                     </div>
                     <NavItemsWrapper isAuthenticated={!!user} />

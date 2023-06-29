@@ -11,7 +11,7 @@ export const DocClient = ({ doc, signedUrl, signedDocSignedUrl }: { signedUrl: s
         <div className="mx-auto max-w-2xl">
 
             <div className="text-2xl font-bold mb-4">
-                Document Workshop
+                Document Workshop 👩‍💻
             </div>
 
             <div className="text-gray-600 text-sm mb-5">

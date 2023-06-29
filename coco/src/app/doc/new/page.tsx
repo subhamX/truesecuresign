@@ -15,20 +15,6 @@ export default async function () {
         return <RedirectToAPageWithToast text="You are not logged in" route="/" />
     }
 
-
-    // async function addDoc(data: any) {
-    //     'use server'
-
-    //     console.log('data', data)
-    //     // const cartId = cookies().get('cartId')?.value
-    //     // await saveToDb({ cartId, data })
-    // }
-
-    // upload file
-
-    // files/${uuid()}/raw/
-
-
     return (
         <div>
             <Navbar user={user} />

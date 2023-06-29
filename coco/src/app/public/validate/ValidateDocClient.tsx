@@ -61,7 +61,7 @@ export const ValidateDocClient = () => {
         <div className="mx-auto max-w-2xl">
 
             <div className="text-2xl font-bold mb-4">
-                Validate Doc
+                Validate Doc 🚓
             </div>
 
             <div className="text-sm text-gray-500 mb-5">
