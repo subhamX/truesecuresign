@@ -13,7 +13,7 @@ export const POST = async (req: NextRequest) => {
         const body = await req.formData()
         const file = body?.get("file") as File // file
         if (!file || !file.name) {
-            return NextResponse.json({ error: "no document key or it is invalid" })
+            return NextResponse.json({ error: "no file key or it is invalid" })
         }
         const documentId = body?.get("documentId") as string
         const token = body?.get("token") as string

@@ -24,3 +24,8 @@ export const REGISTER_CLI_SCREEN='/register-cli/'
 
 
 export const MANAGE_DOCS='/dash/'
+
+
+export const VALIDATE_DOC_API = "/api/validate-doc"
+
+export const VALIDATE_DOC_SCREEN =`/public/validate`

@@ -19,7 +19,7 @@ export default async function (props: any) {
     const doc = await getDocumentInstance(docId, user.userID)
 
     if(doc.hasBeenSigned){
-        return <RedirectToAPageWithToast text="You have already signed this document" route={DOC_VIEW(docId)} />
+        return <RedirectToAPageWithToast type="success" text="Hurray! The doc has been signed!" route={DOC_VIEW(docId)} />
     }
 
 

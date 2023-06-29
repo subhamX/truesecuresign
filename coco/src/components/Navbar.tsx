@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { Menu } from "@headlessui/react";
 import { UserFromAuth } from "@/app/auth/getAuthUser";
-import { AUTH_SCREEN, MANAGE_DOCS, NEW_DOC_SCREEN, PROFILE_SCREEN } from "@/app/routes-config";
+import { AUTH_SCREEN, MANAGE_DOCS, NEW_DOC_SCREEN, PROFILE_SCREEN, VALIDATE_DOC_SCREEN } from "@/app/routes-config";
 import { logOutUserHandler } from "@/app/logoutbtn";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -55,7 +55,7 @@ const NavItems = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
 
 
     return (
-        <div className="flex items-center flex-col gap-1 lg:flex-row justify-end">
+        <div className="flex items-center font-medium flex-col gap-1 lg:flex-row justify-end">
 
             {!isAuthenticated &&
                 <>
@@ -77,23 +77,38 @@ const NavItems = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
                 </>
             }
 
-            {isAuthenticated && <>
-                {/* <NormalNavLink href='/project/new' text="Create new Project" /> */}
-                <NormalNavLink href={PROFILE_SCREEN} text="Profile & Subscription" />
-                <NormalNavLink href='/contact' text="Contact" />
-                <NormalNavLink href='/register-cli' text="Register CLI" />
-                <NormalNavLink href={NEW_DOC_SCREEN} text="New Doc" />
 
+            <Link href={VALIDATE_DOC_SCREEN} className="w-full max-w-[210px] lg:w-fit lg:mx-3">
 
+                <Menu.Item as='div' className={`font-medium border border-pink-600  w-full px-3 hover:bg-gray-200 text-center rounded-lg text-sm py-2 transition-all`}>
 
-                <Menu.Item as='div' onClick={logOutUserHandler} className={`cursor-pointer font-medium w-full max-w-[210px] lg:w-fit lg:mx-3 px-3 hover:bg-gray-200 text-center rounded-lg text-sm py-2 transition-all text-black hover:text-primary`}>
-                    Logout
+                    <div className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-orange-600">
+                        Validate any doc
+                    </div>
+
                 </Menu.Item>
-                <NormalNavLink href={MANAGE_DOCS} text="Manage Docs" focused />
-            </>}
+            </Link>
 
 
-        </div>
+            {
+                isAuthenticated && <>
+                    {/* <NormalNavLink href='/project/new' text="Create new Project" /> */}
+                    <NormalNavLink href={PROFILE_SCREEN} text="Profile & Subscription" />
+                    <NormalNavLink href='/register-cli' text="Register CLI" />
+                    <NormalNavLink href={NEW_DOC_SCREEN} text="New Doc" />
+
+
+
+
+                    <Menu.Item as='div' onClick={logOutUserHandler} className={`cursor-pointer font-medium w-full max-w-[210px] lg:w-fit lg:mx-3 px-3 hover:bg-gray-200 text-center rounded-lg text-sm py-2 transition-all text-black hover:text-primary`}>
+                        Logout
+                    </Menu.Item>
+                    <NormalNavLink href={MANAGE_DOCS} text="Manage Docs" focused />
+                </>
+            }
+
+
+        </div >
     )
 }
 
