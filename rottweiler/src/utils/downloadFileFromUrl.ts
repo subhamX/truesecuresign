@@ -14,7 +14,7 @@ export const downloadFileFromUrl = async (url: string, tmpDir: string, fileName:
             const extension = contentType.split('/')[1];
 
             if(extension!=='pdf'){
-                reject(new Error('The file is not a PDF.'))
+                reject(new Error(`The file is not a PDF. It is a ${extension}`))
             }
 
             const filePath=path.join(tmpDir, fileName)

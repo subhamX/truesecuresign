@@ -8,6 +8,10 @@ import { downloadFileFromUrl } from "../utils/downloadFileFromUrl";
 import path from "path";
 import { signPDFWrapper } from "../keygen/signPDFWrapper";
 import { uploadSignedDoc } from "../api/uploadSignedDoc";
+import { signAndAddTextToPDF } from "../keygen/signPDF";
+// import { signPDF } from "../keygen/signPDF";
+import jsonwebtoken from 'jsonwebtoken'
+
 
 export async function handleSignCommand(documentId: string) {
     try {
@@ -18,10 +22,19 @@ export async function handleSignCommand(documentId: string) {
         if (response !== Status.KEYS_MATCHING) {
             console.log(chalk.redBright(`Please run the init command first!`));
             return;
-        }else{
+        } else {
             console.log(chalk.greenBright(`You are ready to sign!`));
         }
 
+        const val = jsonwebtoken.decode(
+            JSON.parse(fs.readFileSync(userCredsPath, { encoding: 'utf-8' })).token
+        )
+
+        const { email, id } = val as any
+        if(!email || !id) {
+            console.log(chalk.redBright(`Please run the init command again. The token is malformed!`));
+            return;
+        }
 
         // create tmpDir
         if (!fs.existsSync(tmpDir)) {
@@ -37,13 +50,12 @@ export async function handleSignCommand(documentId: string) {
             documentId
         })
 
-        const filePath=await downloadFileFromUrl(signedUrl, tmpDir, `${documentId}.pdf`)
-        // const signedDocPath=path.join(tmpDir, `${documentId}.signed.pdf`) // TODO: fix it
-        // await signPDFWrapper(filePath, signedDocPath);
+        const filePath = await downloadFileFromUrl(signedUrl, tmpDir, `${documentId}.pdf`)
+        const signedDocPath = path.join(tmpDir, `${documentId}.signed.pdf`) // TODO: fix it
+        await signAndAddTextToPDF(filePath, signedDocPath, email, id, documentId);
 
         console.log(chalk.greenBright(`Document signed successfully!`));
 
-        const signedDocPath=filePath
         // upload the signed document
         await uploadSignedDoc({
             token: userCredsJson.token,
@@ -52,7 +64,7 @@ export async function handleSignCommand(documentId: string) {
         })
 
         console.log(chalk.greenBright(`Signed document uploaded successfully to the server!`));
-    } catch (err:any) {
+    } catch (err: any) {
         console.log(chalk.redBright(`Error: ${err.message}`));
         process.exit(1);
     }
