@@ -1,0 +1,8 @@
+
+
+
+export enum Status {
+    CREDS_OK_NO_PUBLIC_KEY_GIVEN,
+    KEYS_MATCHING,
+    KEYS_NOT_MATCHING
+}

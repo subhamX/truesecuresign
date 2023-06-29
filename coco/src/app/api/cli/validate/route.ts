@@ -8,14 +8,9 @@ import Passage from "@passageidentity/passage-node"
 import { passageConfig } from "@/app/auth/passageConfig"
 import { UserIdentity, getUserIdentity } from "@/utils/db/userIdentity"
 import mongoDbClientPromise, { databaseId } from "@/utils/db/mongodb"
+import { Status } from "./Status"
 
 
-
-export enum Status {
-    CREDS_OK_NO_PUBLIC_KEY_GIVEN,
-    KEYS_MATCHING,
-    KEYS_NOT_MATCHING,
-}
 
 export const POST = async (req: NextRequest) => {
     try {
