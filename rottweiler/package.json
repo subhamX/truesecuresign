@@ -1,6 +1,6 @@
 {
   "name": "truesecuresign",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Sign, and Edit your docs securely!",
   "homepage": "https://truesecuresign.vercel.app/",
   "main": "lib/index.js",
@@ -8,11 +8,20 @@
   "scripts": {
     "dev": "tsc -b && node lib/index.js",
     "build": "tsc -b",
-    "start": "node lib/index.js"
+    "start": "node lib/index.js",
+    "updateNpmPkg": "./build.sh && npm publish"
   },
-  "keywords": ["1password", "privacy", "security", "pdf sign", "pdf edit", "signature", "pdf"],
-	"author": "subhamx",
-	"license": "Apache-2.0",
+  "keywords": [
+    "1password",
+    "privacy",
+    "security",
+    "pdf sign",
+    "pdf edit",
+    "signature",
+    "pdf"
+  ],
+  "author": "subhamx",
+  "license": "Apache-2.0",
   "dependencies": {
     "@1password/connect": "^1.3.0",
     "@pdf-lib/fontkit": "^1.1.1",
@@ -21,7 +30,6 @@
     "clear": "^0.1.0",
     "commander": "^11.0.0",
     "crypto-js": "^4.1.1",
-    "dotenv": "^16.3.1",
     "figlet": "^1.6.0",
     "form-data": "^4.0.0",
     "jsonwebtoken": "^9.0.0",
@@ -47,7 +55,7 @@
     "typescript": "^5.1.3"
   },
   "repository": {
-		"type": "git",
-		"url": "https://github.com/subhamX/truesecuresign"
-	}
+    "type": "git",
+    "url": "https://github.com/subhamX/truesecuresign"
+  }
 }
