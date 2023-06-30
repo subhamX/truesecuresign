@@ -65,11 +65,16 @@ const NavItems = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
 
                     {!isAuthStart &&
 
-                        <Link prefetch={false} href={AUTH_SCREEN}>
-                            <button
-                                className="cursor-pointer font-medium w-full max-w-[240px] lg:w-fit lg:mx-3 px-3 hover:bg-blue-700 border-blue-700 border hover:text-white text-blue-700 bg-blue-200 text-center rounded-lg text-sm py-2 transition-all  hover:text-primary">
-                                Sign In
-                            </button>
+                        <Link prefetch={false} href={AUTH_SCREEN} className="w-full max-w-[210px] lg:w-fit lg:mx-3 ">
+                            <Menu.Item as='div' className={`font-medium border border-blue-600  w-full px-3 hover:bg-blue-700 hover:text-white text-center rounded-lg text-sm py-2 transition-all`}>
+
+                                <button
+                                    className="font-medium">
+                                    Sign In
+                                </button>
+
+                            </Menu.Item>
+
                         </Link>
                     }
 
@@ -97,11 +102,12 @@ const NavItems = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
                     <NormalNavLink href={NEW_DOC_SCREEN} text="New Doc" />
 
 
+                    <div onClick={logOutUserHandler} className="w-full max-w-[210px] lg:w-fit lg:mx-3">
+                        <Menu.Item as='div' className={`cursor-pointer font-medium px-3 hover:bg-gray-200 text-center rounded-lg text-sm py-2 transition-all text-black hover:text-primary`}>
+                            Logout
+                        </Menu.Item>
+                    </div>
 
-
-                    <Menu.Item as='div' onClick={logOutUserHandler} className={`cursor-pointer font-medium w-full max-w-[210px] lg:w-fit lg:mx-3 px-3 hover:bg-gray-200 text-center rounded-lg text-sm py-2 transition-all text-black hover:text-primary`}>
-                        Logout
-                    </Menu.Item>
                     <NormalNavLink href={MANAGE_DOCS} text="Manage Docs" focused />
                 </>
             }
