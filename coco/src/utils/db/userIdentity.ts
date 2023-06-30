@@ -21,6 +21,5 @@ export const createUserIdentity = async (data: ModelWithId<UserIdentity>) => {
 export const getUserIdentity = async (passageId: string, publicKey?: string) => {
     const client=await mongoDbClientPromise
     const userIdentity = await client.db(databaseId).collection<UserIdentity>("userIdentity").findOne({ passageId, publicKey  });
-    console.log(userIdentity)
     return userIdentity;
 }

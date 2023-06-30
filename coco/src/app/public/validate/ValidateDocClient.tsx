@@ -43,7 +43,6 @@ export const ValidateDocClient = () => {
                 if (data.error) {
                     throw new Error(data.error)
                 }
-                console.log(data)
                 setData(data)
                 setShowUpload(false)
             } catch (e: any) {

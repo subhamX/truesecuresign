@@ -15,8 +15,6 @@ export default async function (props: any) {
 
     const docId = props.params.id
 
-    console.log(docId)
-
     const doc = await getDocumentInstance(docId, user.userID)
 
     // fetch doc from db

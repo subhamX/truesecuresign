@@ -20,10 +20,8 @@ export async function GET(req: NextRequest) {
         })
         const authToken = req.cookies.get("psg_auth_token")?.value
         const userId = await getUserIdFromCookie(authToken ?? "");
-        console.log("userId", userId)
         if (userId) {
             const aa=await passage.user.signOut(userId)
-            console.log("xxx", aa)
         }
         return res
     } catch (err: any) {

@@ -14,7 +14,6 @@ export const getUser = async (): Promise<UserFromAuth | null> => {
     try {
         const userID = await getUserId();
 
-        console.log("userID", userID)
         if (userID) {
             const { email, phone, user_metadata } = await passage.user.get(userID);
 
@@ -42,13 +41,6 @@ export async function getUserId() {
 }
 
 export const getUserIdFromCookie = async (authToken: string) => {
-    // const req = {
-    //     headers: {
-    //         authorization: `Bearer ${authToken}`,
-    //     },
-    // };
-    // const tm111=passage.authenticateRequest(req)
-    // console.log("tm111", tm111)
     const userID = await passage.validAuthToken(authToken);
     return userID;
 }
