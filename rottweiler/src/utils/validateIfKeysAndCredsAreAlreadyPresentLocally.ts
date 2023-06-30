@@ -16,23 +16,23 @@ export async function validateIfKeysAndCredsAreAlreadyPresentLocally() {
         // load the creds if present
         const userCredsRaw = readFileSync(userCredsPath, { encoding: 'utf-8' });
         userCredsJson = JSON.parse(userCredsRaw);
-        console.log(chalk.yellowBright(`The email and token are present locally...`));
+        console.log(chalk.yellowBright(`The email and token are present locally... 🤫`));
         try {
             publicKey = getPublicKeyFromCertificate(certificatePath);
-            console.log(chalk.yellowBright(`Got the public key from certificate...`));
+            console.log(chalk.yellowBright(`Got the public key from certificate... 😊`));
         } catch (err: any) {
             // if file doesn't exist then don't throw any error
             if (err.code !== 'ENOENT') {
                 throw err;
             }
-            console.log(chalk.red(`keys are not present locally...`));
+            console.log(chalk.redBright(`keys are not present locally... 😭`));
         }
     } catch (err: any) {
         // if file doesn't exist then don't throw any error
         if (err.code !== 'ENOENT') {
             throw err;
         }
-        console.log(chalk.red(`Creds are not present locally...`));
+        console.log(chalk.redBright(`Creds are not present locally... 😭`));
         return null;
     }
 

@@ -8,7 +8,7 @@ import { handleSignCommand } from './commands/handleSignCommand';
 
 
 const program = new Command();
-export const vaultName = 'TrueSecuyrexSixgnv4.12.0'
+export const vaultName = 'TrueSecureSignv1.x.x'
 export const token = process.env.OP_SERVICE_ACCOUNT_TOKEN;
 
 initCLI()

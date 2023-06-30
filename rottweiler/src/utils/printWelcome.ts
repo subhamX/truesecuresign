@@ -5,7 +5,7 @@ import figlet from 'figlet';
 export function printWelcome() {
     clear();
     console.log(
-        chalk.yellow(
+        chalk.yellowBright(
             figlet.textSync('TrueSecureSign', { horizontalLayout: 'full' })
         )
     );

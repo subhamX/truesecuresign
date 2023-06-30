@@ -5,5 +5,5 @@ import chalk from 'chalk';
 export function handleCreateVault() {
     const createVault = `op vault create ${vaultName} --format json`;
     execSync(createVault, { encoding: 'utf-8', stdio: 'pipe' });
-    console.log(chalk.greenBright('Vault created.'));
+    console.log(chalk.greenBright('Vault created. ✅'));
 }

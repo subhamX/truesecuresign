@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 export async function getUserDetails() {
     const readline = require('readline').createInterface({
         input: process.stdin,
@@ -9,7 +11,7 @@ export async function getUserDetails() {
     };
 
     user.email = await new Promise((resolve, reject) => {
-        readline.question('Please enter the registered email for truesecuresign?\n', (email: string) => {
+        readline.question(chalk.blueBright('Please enter the registered email for truesecuresign?\n'), (email: string) => {
             // validate if the email is valid
             email = email.trim();
 
@@ -27,7 +29,7 @@ export async function getUserDetails() {
 
 
     user.token = await new Promise((resolve, reject) => {
-        readline.question('Please enter the CLI token visible at truesecuresign dashboard?\n', (token: string) => {
+        readline.question(chalk.blueBright('Please enter the CLI token visible at truesecuresign dashboard?\n'), (token: string) => {
             // validate if the email is valid
             token = token.trim();
 

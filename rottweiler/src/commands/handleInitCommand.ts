@@ -17,11 +17,11 @@ export async function handleInitCommand(options: any) {
 
     const importKeysFromOnePassword = async (user: { email: string; token: string; }) => {
         try {
-            console.log(chalk.yellowBright(`Checking if the keys are present in 1password vault..`));
+            console.log(chalk.yellowBright(`Checking if the keys are present in 1password vault.. 🫣`));
             // check if the keys are already present in vault
             const keys = await restoreKeysFromOnePassword(user.email, vaultName);
             // if we're here it means we can load the keys
-            console.log(chalk.greenBright(`The keys are present in 1password vault. Loading them..`));
+            console.log(chalk.greenBright(`The keys are present in 1password vault. Loading them.. 🤩`));
             // load the keys
             // store the and certificate
             writeFileSync(certificatePath, keys.certificate);
@@ -37,12 +37,12 @@ export async function handleInitCommand(options: any) {
 
 
     const exportKeysToOnePassword = async (user: { email: string; token: string; }) => {
-        console.log(chalk.yellowBright(`Saving the keys in 1password vault..`));
+        console.log(chalk.yellowBright(`Saving the keys in 1password vault.. 🤞`));
         // save keys in 1password
         const certificate = readFileSync(certificatePath, { encoding: 'utf-8' });
         const privateKey = readFileSync(privateKeyPath, { encoding: 'utf-8' });
         await pushKeysToOnePassword(user.email, vaultName, privateKey, certificate);
-        console.log(chalk.greenBright(`Backup to 1password vault successful!`));
+        console.log(chalk.greenBright(`Backup to 1password vault successful! 🔥`));
     };
 
     try {
@@ -52,7 +52,7 @@ export async function handleInitCommand(options: any) {
 
         if (response) {
             if (response === Status.KEYS_MATCHING) {
-                console.log(chalk.greenBright(`You are ready to login! Everything good, the keys are matching too!`));
+                console.log(chalk.greenBright(`Everything is good! You are ready to sign documents securely with the local key! 🎊`));
                 return;
             }
         }
@@ -69,7 +69,7 @@ export async function handleInitCommand(options: any) {
         // ensure keys are present
         if (response === Status.KEYS_NOT_MATCHING) {
             // just register the keys
-            console.log(chalk.yellowBright(`The keys are present locally but not matching on server. Registering the keys..`));
+            console.log(chalk.yellowBright(`The keys are present locally but not matching on server. Registering the keys.. 🥺`));
         }
 
         if (!isUserCredsPresent) {
@@ -80,7 +80,7 @@ export async function handleInitCommand(options: any) {
 
         if (response === null) {
             // it means we got the input from the user. and need to validate it
-            console.log(chalk.yellow(`Validating the email and token..`));
+            console.log(chalk.yellowBright(`Validating the email and token.. 🥸`));
             // validate the email and token
             await validateCredsFromServer({
                 email: user.email,
@@ -111,12 +111,12 @@ export async function handleInitCommand(options: any) {
             const importResponse = await importKeysFromOnePassword(user);
             if (importResponse) areKeysPresentLocally = true, areKeysPresentInOnePassword = true;
             else {
-                console.log(chalk.redBright(`The keys are not present in 1password vault. `));
+                console.log(chalk.redBright(`The keys are not present in 1password vault. 😟`));
 
-                console.log(chalk.yellowBright(`Generating new keys..`));
+                console.log(chalk.yellowBright(`Generating new keys.. 💪`));
                 // generate keys
                 await generateKeyAndCertificate("idevsubham@gmail.com");
-                console.log(chalk.greenBright(`Keys generated successfully..`));
+                console.log(chalk.greenBright(`Keys generated successfully.. 🤩`));
             }
         }
 
@@ -130,25 +130,25 @@ export async function handleInitCommand(options: any) {
         // we will register it below. since there are changes in which the keys are
         // present locally but not registered in server. so we will register it below
         // validate the keys to ensure that everything is good!
-        console.log(chalk.redBright(`Re checking the status from server..`));
+        console.log(chalk.redBright(`Re-checking the status from server.. 👀`));
         let status = await validateIfKeysAndCredsAreAlreadyPresentLocally();
 
         if (status === Status.KEYS_NOT_MATCHING) {
             const publicKey = getPublicKeyFromCertificate(certificatePath);
-            console.log(chalk.greenBright(`Registering the publicKey on server..`));
+            console.log(chalk.greenBright(`Registering the publicKey on server.. 🎬`));
             // register the keys with server
             const status = await registerCredsAndPublicKeyToServer({
                 email: user.email,
                 token: user.token,
                 publicKey: publicKey
             });
-            console.log(chalk.greenBright(`The publicKey is saved on 1password vault.`));
+            console.log(chalk.greenBright(`The publicKey is saved on 1password vault. ✅`));
             return;
         }
 
-        console.log(chalk.greenBright(`You are ready to login!`));
+        console.log(chalk.greenBright(`Everything is good! You are ready to sign documents securely with the local key! 🎉`));
     } catch (e: any) {
-        console.log(chalk.redBright(`Error: ${e.message}`));
+        console.log(chalk.redBright(`Error: ${e.message} 😢`));
         process.exit(1);
     }
 }

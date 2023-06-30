@@ -53,5 +53,5 @@ export async function generateKeyAndCertificate(email: string) {
     fs.writeFileSync(privateKeyPath, pemKey);
     fs.writeFileSync(certificatePath, pem);
 
-  console.log(chalk.greenBright('Private key and certificate generated successfully.'));
+  console.log(chalk.greenBright('Private key and certificate generated successfully. ✨'));
 }

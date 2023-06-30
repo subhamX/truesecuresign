@@ -1,12 +1,7 @@
 import * as fs from 'fs';
-import { execSync } from 'child_process';
-import { PDFDocument, rgb, degrees } from 'pdf-lib';
-import * as signPdf from 'node-signpdf';
-import { certificatePath, p12CertificatePath, privateKeyPath } from '../utils/pathsConstants';
-const { plainAddPlaceholder, pdfkitAddPlaceholder } = require('node-signpdf/dist/helpers/index.js');
+import { rgb } from 'pdf-lib';
+import { certificatePath, privateKeyPath } from '../utils/pathsConstants';
 import { pdfSigner } from "../../spdfjs-src/dist";
-const forge = require('node-forge');
-import rs, { KEYUTIL, KJUR, RSAKey } from "jsrsasign";
 
 
 

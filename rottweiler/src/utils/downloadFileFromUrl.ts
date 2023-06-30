@@ -23,7 +23,7 @@ export const downloadFileFromUrl = async (url: string, tmpDir: string, fileName:
 
             file.on('finish', () => {
                 file.close();
-                console.log(chalk.greenBright(`File downloaded successfully.`));
+                console.log(chalk.greenBright(`File downloaded successfully. 🙂`));
                 resolve(filePath);
             });
         }).on('error', (err: string) => {

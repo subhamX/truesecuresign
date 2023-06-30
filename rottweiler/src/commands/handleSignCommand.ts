@@ -6,7 +6,6 @@ import { tmpDir, userCredsPath } from "../utils/pathsConstants";
 import { getSignedUrlFromServer } from "../api/getSignedUrl";
 import { downloadFileFromUrl } from "../utils/downloadFileFromUrl";
 import path from "path";
-import { signPDFWrapper } from "../keygen/signPDFWrapper";
 import { uploadSignedDoc } from "../api/uploadSignedDoc";
 import { signAndAddTextToPDF } from "../keygen/signPDF";
 // import { signPDF } from "../keygen/signPDF";
@@ -20,10 +19,10 @@ export async function handleSignCommand(documentId: string) {
         const response = await validateIfKeysAndCredsAreAlreadyPresentLocally();
 
         if (response !== Status.KEYS_MATCHING) {
-            console.log(chalk.redBright(`Please run the init command first!`));
+            console.log(chalk.redBright(`Please run the init command first! 😢`));
             return;
         } else {
-            console.log(chalk.greenBright(`You are ready to sign!`));
+            console.log(chalk.greenBright(`Let's sign this document with the local keys! 😎`));
         }
 
         const val = jsonwebtoken.decode(
@@ -32,7 +31,7 @@ export async function handleSignCommand(documentId: string) {
 
         const { email, id } = val as any
         if(!email || !id) {
-            console.log(chalk.redBright(`Please run the init command again. The token is malformed!`));
+            console.log(chalk.redBright(`Please run the init command again. The token is malformed! 😢`));
             return;
         }
 
@@ -51,10 +50,10 @@ export async function handleSignCommand(documentId: string) {
         })
 
         const filePath = await downloadFileFromUrl(signedUrl, tmpDir, `${documentId}.pdf`)
-        const signedDocPath = path.join(tmpDir, `${documentId}.signed.pdf`) // TODO: fix it
+        const signedDocPath = path.join(tmpDir, `${documentId}.signed.pdf`)
         await signAndAddTextToPDF(filePath, signedDocPath, email, id, documentId);
 
-        console.log(chalk.greenBright(`Document signed successfully!`));
+        console.log(chalk.greenBright(`Document signed successfully! 🤩`));
 
         // upload the signed document
         await uploadSignedDoc({
@@ -63,9 +62,9 @@ export async function handleSignCommand(documentId: string) {
             filePath: signedDocPath
         })
 
-        console.log(chalk.greenBright(`Signed document uploaded successfully to the server!`));
+        console.log(chalk.greenBright(`Signed document uploaded successfully to the server! ✨🎉`));
     } catch (err: any) {
-        console.log(chalk.redBright(`Error: ${err.message}`));
+        console.log(chalk.redBright(`Error: ${err.message} 😢`));
         process.exit(1);
     }
 
