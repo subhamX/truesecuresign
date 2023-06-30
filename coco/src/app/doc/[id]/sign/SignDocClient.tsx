@@ -37,7 +37,7 @@ export const SignDocClient = ({
                 </div>
 
 
-                <CodeBlock text={`npx truesecuresign sign ${docId}`} />
+                <CodeBlock text={`npx truesecuresign@latest sign ${docId}`} />
 
             </div>
 

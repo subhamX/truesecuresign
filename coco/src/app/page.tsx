@@ -75,7 +75,7 @@ export default async function Home() {
                     Enhanced Security:
                   </span>
 
-                  TrueSmartSign ensures utmost security by storing both the private key and certificate locally, reducing the risk of unauthorized access to sensitive documents.
+                  TrueSecureSign ensures utmost security by storing both the private key and certificate locally, reducing the risk of unauthorized access to sensitive documents.
                 </div>
                 <img className='max-w-xs w-full' src="/undraw_secure_login_pdn4.svg" alt="" />
               </div>
@@ -85,7 +85,7 @@ export default async function Home() {
                 <img className='max-w-sm w-full rounded-xl' src="/1pass.png" alt="" />
                 <div>
                   <span className='font-bold'>Backup and Sync with 1password:</span>
-                  Safeguard your data with TrueSmartSign's backup feature, which securely stores a local backup of your private key and certificate using our CLI. Rest assured that your sensitive information is never sent to our servers or accessible by anyone, providing an added layer of privacy and control over your digital assets.
+                  Safeguard your data with TrueSecureSign's backup feature, which securely stores a local backup of your private key and certificate using our CLI. Rest assured that your sensitive information is never sent to our servers or accessible by anyone, providing an added layer of privacy and control over your digital assets.
                 </div>
               </div>
 
@@ -102,7 +102,7 @@ export default async function Home() {
 
                   </span>
 
-                  Seamlessly edit PDFs with TrueSmartSign's user-friendly interface, empowering you to make quick modifications without the need for complex software.
+                  Seamlessly edit PDFs with TrueSecureSign's user-friendly interface, empowering you to make quick modifications without the need for complex software.
 
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default async function Home() {
 
                 <div>
                   <span className='font-bold'>Effortless Digital Signatures:</span>
-                  Sign PDFs effortlessly using TrueSmartSign's intuitive signing process, providing legally binding electronic signatures that save time and streamline document workflows.
+                  Sign PDFs effortlessly using TrueSecureSign's intuitive signing process, providing legally binding electronic signatures that save time and streamline document workflows.
 
                 </div>
                 <img className='max-w-sm  w-full' src="/undraw_fingerprint_re_uf3f.svg" alt="" />
@@ -139,13 +139,13 @@ export default async function Home() {
           <div className='max-w-3xl mx-auto flex flex-col gap-2'>
 
             <div>
-              <span className='font-bold text-3xl'>A</span>t TrueSmartSign, our utmost priority is your security and privacy. Our innovative solution ensures that your <span className='font-bold'>private keys and certificates remain exclusively in your hands</span>, never reaching our servers.
+              <span className='font-bold text-3xl'>A</span>t TrueSecureSign, our utmost priority is your security and privacy. Our innovative solution ensures that your <span className='font-bold'>private keys and certificates remain exclusively in your hands</span>, never reaching our servers.
             </div>
 
             <div>
-              With TrueSmartSign, you are the sole entity with the power to sign documents—no one else, including us, can theoretically do it. For added peace of mind, you can locally backup your keys to <span className='font-bold'>1Password</span>, further reinforcing the layers of security.
+              With TrueSecureSign, you are the sole entity with the power to sign documents—no one else, including us, can theoretically do it. For added peace of mind, you can locally backup your keys to <span className='font-bold'>1Password</span>, further reinforcing the layers of security.
 
-              Trust TrueSmartSign for a truly secure and reliable PDF editing and signing experience.
+              Trust TrueSecureSign for a truly secure and reliable PDF editing and signing experience.
             </div>
 
             <div>

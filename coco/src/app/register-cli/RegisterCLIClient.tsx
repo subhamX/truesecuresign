@@ -38,7 +38,7 @@ export const RegisterCLIClient = ({
 
 
 
-                <CodeBlock text="npx truesecuresign init" />
+                <CodeBlock text="npx truesecuresign@latest init" />
 
 
 
