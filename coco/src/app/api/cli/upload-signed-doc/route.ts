@@ -7,6 +7,13 @@ import jsonwebtoken from "jsonwebtoken"
 
 const signedDocumentPrefix = (documentId: string) => `documents_signed/${documentId}`
 
+export const config = {
+    api: {
+      bodyParser: false
+    }
+  }
+
+
 export const POST = async (req: NextRequest) => {
     try {
         // get user id
