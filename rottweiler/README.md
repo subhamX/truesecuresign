@@ -23,7 +23,7 @@ Before using TrueSecureSign CLI, make sure you have your email and token ready. 
 To initialize your private keys and generate a certificate, use the `init` command:
 
 ```shell
-npx truesecuresign init
+npx truesecuresign@latest init
 ```
 
 During the initialization process, your private keys and certificate will be securely generated and stored locally on your device. Rest assured that TrueSecureSign CLI does not transmit any keys or data to our servers, maintaining the highest level of security. For backup we do push them to 1password to which we don't have any access. You can opt out of it too.
@@ -33,7 +33,7 @@ During the initialization process, your private keys and certificate will be sec
 To digitally sign a PDF document using your private key, use the `sign` command:
 
 ```shell
-npx truesecuresign sign docId
+npx truesecuresign@latest sign docId
 ```
 
 Replace `docId` with the ID or path of the document you want to sign. TrueSecureSign CLI will utilize your locally stored private key to apply a legally binding electronic signature to the document. This ensures that only you have the ability to sign documents, as your keys are never accessible to anyone else, including TrueSecureSign.

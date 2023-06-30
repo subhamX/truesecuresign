@@ -1,6 +1,6 @@
 {
   "name": "truesecuresign",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Sign, and Edit your docs securely!",
   "homepage": "https://truesecuresign.vercel.app/",
   "main": "lib/index.js",
@@ -10,7 +10,7 @@
     "build": "tsc -b",
     "start": "node lib/index.js"
   },
-  "keywords": ["1password", "private", "security", "pdf sign", "pdf edit"],
+  "keywords": ["1password", "privacy", "security", "pdf sign", "pdf edit", "signature", "pdf"],
 	"author": "subhamx",
 	"license": "Apache-2.0",
   "dependencies": {
