@@ -13,13 +13,13 @@ In an era where large companies store and manage our encryption keys and signing
 
 ## Features
 
-* **Effortless Digital Signatures with Enhanced Security:**Sign PDFs effortlessly using TrueSecureSign's intuitive signing process, providing legally binding electronic signatures that save time and streamline document workflows. TrueSecureSign emphasizes security and privacy by enabling users to manage their own encryption and signing keys. By ensuring that your keys are stored locally, and it never gets to our servers, we eliminate the risk of unauthorized access and maintain the highest level of security.
+* **Effortless Digital Signatures with Enhanced Security:** Sign PDFs effortlessly using TrueSecureSign's intuitive signing process, providing legally binding electronic signatures that save time and streamline document workflows. TrueSecureSign emphasizes security and privacy by enabling users to manage their own encryption and signing keys. By ensuring that your keys are stored locally, and it never gets to our servers, we eliminate the risk of unauthorized access and maintain the highest level of security.
 
-* **1Password Vaults for Secure Key Snapshots:**TrueSecureSign takes a unique approach to key backup and recovery. We leverage the secure infrastructure of 1Password vaults to take snapshots of your keys directly from your local machine. These snapshots remain confidential, ensuring that our servers never gain access to your keys. Unlike other services that generate keys themselves, leaving users unaware of who holds the power to sign on their behalf, TrueSecureSign puts you in complete control.
+* **1Password Vaults for Secure Key Snapshots:** TrueSecureSign takes a unique approach to key backup and recovery. We leverage the secure infrastructure of 1Password vaults to take snapshots of your keys directly from your local machine. These snapshots remain confidential, ensuring that our servers never gain access to your keys. Unlike other services that generate keys themselves, leaving users unaware of who holds the power to sign on their behalf, TrueSecureSign puts you in complete control.
 
-* **Easy PDF Editing:**Seamlessly edit PDFs with TrueSecureSign's user-friendly interface, empowering you to make quick modifications without the need for complex software.
+* **Easy PDF Editing:** Seamlessly edit PDFs with TrueSecureSign's user-friendly interface, empowering you to make quick modifications without the need for complex software.
 
-* **Passkeys Integration for Convenient Authentication:**To enhance the user experience, TrueSecureSign integrates with Passage, a secure password manager. Passkeys offer convenience, allowing users to authenticate quickly and securely without the hassle of traditional passwords. We believe that safeguarding your keys should be seamless and user-friendly.
+* **Passkeys Integration for Convenient Authentication:** To enhance the user experience, TrueSecureSign integrates with Passage, a secure password manager. Passkeys offer convenience, allowing users to authenticate quickly and securely without the hassle of traditional passwords. We believe that safeguarding your keys should be seamless and user-friendly.
 
 
 
