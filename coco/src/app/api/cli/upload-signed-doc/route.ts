@@ -1,24 +1,18 @@
-import { getUserIdFromCookie } from "@/app/auth/getAuthUser"
-import { createDocumentInstance, updateDocumentInstanceWithSignedDocInfo } from "@/utils/db/document"
 import { uploadFileToStorageBucket } from "@/utils/storage"
-import { ObjectId } from "mongodb"
 import { NextRequest, NextResponse } from "next/server"
 import jsonwebtoken from "jsonwebtoken"
+import { updateDocumentInstanceWithSignedDocInfo } from "@/utils/db/document"
+import { ObjectId } from "bson"
 
 const signedDocumentPrefix = (documentId: string) => `documents_signed/${documentId}`
 
-export const config = {
-    api: {
-      bodyParser: false
-    }
-  }
 
 
 export const POST = async (req: NextRequest) => {
     try {
         // get user id
         const body = await req.formData()
-        const file = body?.get("file") as File // file
+        const file = body?.get("file") as File
         if (!file || !file.name) {
             return NextResponse.json({ error: "no file key or it is invalid" })
         }
