@@ -79,7 +79,7 @@ export const ValidateDocClient = () => {
 
                         <div className="relative">
                             <div className="bg-gray-700 h-40 rounded-t-xl overflow-hidden">
-                                <img className="w-full" src="https://unsplash.com/photos/T_Qe4QlMIvQ/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTZ8fHdhbGxwYXBlcnxlbnwwfHx8fDE2NTkxODMyODI&force=true&w=640" />
+                                <img className="w-full object-bottom" src="https://unsplash.com/photos/8_NI1WTqCGY/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTF8fHBhZGxvY2t8ZW58MHx8fHwxNjg4MTM1NTgwfDA&force=true&w=640" />
                             </div>
                         </div>
                         <div className="border bg-base-200 rounded-b-xl pt-8 p-5 flex flex-col gap-2">

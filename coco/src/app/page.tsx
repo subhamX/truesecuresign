@@ -53,73 +53,80 @@ export default async function Home() {
         </section>
 
 
-        <section id="features" className="pt-[100px]">
+        <section id="features" className="pt-[100px] bg-[#f4f9f7] w-screen mt-16 pb-16">
 
 
 
 
 
-          <div className=' bg-[#f4f9f7] w-screen py-16 px-4'>
+          <div className='w-full px-4'>
 
             <div className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text font-bold text-4xl mb-4 text-center">
               Features ✨
             </div>
 
 
-            <div className='max-w-3xl mx-auto flex flex-col gap-9'>
+            <div className='max-w-3xl mt-12 mx-auto flex flex-col gap-9'>
 
 
               <div className='flex flex-col-reverse sm:flex-row gap-8 items-center'>
-                <div>
+                <div className='space-x-1'>
                   <span className='font-bold'>
-                    Enhanced Security:
+                    Effortless Digital Signatures with Enhanced Security:
                   </span>
 
-                  TrueSecureSign ensures utmost security by storing both the private key and certificate locally, reducing the risk of unauthorized access to sensitive documents.
+                  <span>
+                    Our intuitive process streamlines document workflows, providing legally binding electronic signatures. With a focus on security and privacy, TrueSecureSign empowers users to manage their own encryption and signing keys. Your keys are stored locally, ensuring the highest level of security. Rest assured, they never reach our servers.
+                  </span>
+
                 </div>
-                <img className='max-w-xs w-full' src="/undraw_secure_login_pdn4.svg" alt="" />
+                <img className='max-w-xs  w-full' src="/undraw_fingerprint_re_uf3f.svg" alt="" />
+
               </div>
 
 
               <div className='flex flex-col sm:flex-row gap-8 items-center'>
                 <img className='max-w-sm w-full rounded-xl' src="/1pass.png" alt="" />
-                <div>
-                  <span className='font-bold'>Backup and Sync with 1password:</span>
-                  Safeguard your data with TrueSecureSign's backup feature, which securely stores a local backup of your private key and certificate using our CLI. Rest assured that your sensitive information is never sent to our servers or accessible by anyone, providing an added layer of privacy and control over your digital assets.
+                <div className='space-x-1'>
+                  <span className='font-bold'>1Password Vaults for Secure Key Snapshots:</span>
+                  <span>
+                    We leverage the secure infrastructure of 1Password vaults to backup your keys directly from your local machine. These snapshots remain confidential, ensuring that our servers never gain access to your keys. Unlike other services that generate keys themselves, leaving users unaware of who holds the power to sign on their behalf, TrueSecureSign puts you in complete control.
+                  </span>
                 </div>
               </div>
 
               <div className='flex flex-col sm:flex-row gap-8 items-center'>
                 <img className='max-w-xs w-full' src="/undraw_documents_re_isxv.svg" alt="" />
 
-                <div>
+                <div className='space-x-1'>
 
 
 
                   <span className='font-bold'>
-
                     Easy PDF Editing:
-
                   </span>
 
-                  Seamlessly edit PDFs with TrueSecureSign's user-friendly interface, empowering you to make quick modifications without the need for complex software.
+                  <span>
+                    Seamlessly edit PDFs with TrueSecureSign's user-friendly interface, empowering you to make quick modifications without the need for complex software.
+                  </span>
 
                 </div>
               </div>
 
-
-
-              <div className='flex flex-col-reverse sm:flex-row gap-3 items-center'>
-
-
-                <div>
-                  <span className='font-bold'>Effortless Digital Signatures:</span>
-                  Sign PDFs effortlessly using TrueSecureSign's intuitive signing process, providing legally binding electronic signatures that save time and streamline document workflows.
-
+              <div className='flex flex-col-reverse sm:flex-row gap-8 items-center'>
+                <div className='space-x-1'>
+                  <span className='font-bold'>
+                    Passkeys Integration for Convenient Authentication:
+                  </span>
+                  <span>
+                    To enhance the user experience, TrueSecureSign integrates with <a href='https://passage.1password.com/' target='__blank'>Passage</a>, a secure password manager. Passkeys offer convenience, allowing users to authenticate quickly and securely without the hassle of traditional passwords. We believe that safeguarding your keys should be seamless and user-friendly.
+                  </span>
                 </div>
-                <img className='max-w-sm  w-full' src="/undraw_fingerprint_re_uf3f.svg" alt="" />
-
+                <img className='max-w-xs w-full' src="/64516fef70e3c5307104271e_Passage Logo - Finalized_Icon Only-Light.png" alt="" />
               </div>
+
+
+
             </div>
 
 
