@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander';
 import { initCLI } from './utils/initCheck';
 import { printWelcome } from './utils/printWelcome';

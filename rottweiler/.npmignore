@@ -1,0 +1,11 @@
+_docs/
+node_modules/
+combined.log
+error.log
+package-lock.json
+src/
+tsconfig.json
+.github/
+build.sh
+
+
